@@ -1,9 +1,14 @@
+import React from 'react';
 import './App.module.scss';
 import styles from './App.module.scss'
+import Employee from './components/Employee';
 
 const App = () => {
   return (
-<p className={styles.para}>App works...</p>
+  <React.Fragment>
+    <h1 className={styles.heading}>Ticket Tracker</h1>
+  <Employee />
+  </React.Fragment>
   );
 }
 

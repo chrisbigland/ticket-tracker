@@ -1,0 +1,32 @@
+.employee {
+    background-color: #FBFFDF;
+    width: 150px;
+    height: 250px;
+    border: 1px solid black;
+    border-radius: 2px;
+}
+
+.display {
+    background-color: lightgray;
+    display: flex;
+    justify-content: center;
+    border: 1px solid black;
+    font-size: 2rem;
+}
+
+.plusMinus {
+    font-size: 2rem;
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 15px;
+    margin-top: 10px;
+}
+
+.info {
+    font-size: 1rem;
+}
+
+.name {
+    margin-bottom: 35px;
+    margin-top: 45px;
+}
