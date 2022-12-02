@@ -1,7 +1,10 @@
 import React from 'react'
 import styles from './Employee.module.scss'
 
-const Employee = () => {
+const Employee = (props) => {
+
+    const {name, role} = props.employee;
+
   return (
     <React.Fragment>
     <div className={styles.employee}>
@@ -15,8 +18,8 @@ const Employee = () => {
                 <p>+</p></span>
         </div>
         <div className={styles.info}>
-            <p className={styles.name}>Name:</p>
-            <p className={styles.role}>Role:</p>
+            <p className={styles.name}>Name: {name}</p>
+            <p className={styles.role}>Role: {role}</p>
         </div>
     </div>
     </React.Fragment>
