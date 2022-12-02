@@ -13,10 +13,12 @@ const App = () => {
   return (
   <React.Fragment>
     <h1 className={styles.heading}>Ticket Tracker</h1>
-  {/* <Employee employee={team[0]}/> */}
-  {team.map(getEmployee)}
-  {/* <TicketTotal />
-  <TopPerformers /> */}
+    <section className={styles.content}>
+      {/* <Employee employee={team[0]}/> */}
+      {team.map(getEmployee)}
+      {/* <TicketTotal />
+      <TopPerformers /> */}
+  </section>
   </React.Fragment>
   );
 }

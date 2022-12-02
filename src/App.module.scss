@@ -2,3 +2,12 @@
     font-size: 2rem;
     text-align: center;
 }
+
+.content {
+    max-width: 100vw;
+    max-width: 100vw;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 275px);
+    grid-gap: 100px;
+    justify-content: space-between;
+}
