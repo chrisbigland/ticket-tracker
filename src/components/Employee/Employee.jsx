@@ -15,9 +15,9 @@ const Employee = (props) => {
         </div>
         <div className={styles.plusMinus}>
             <span>
-                <button onClick={() => setCount(subtraction)}>-</button></span>
+                <button className={styles.btn} onClick={() => setCount(subtraction)}>-</button></span>
             <span>
-                <button onClick={() => setCount(count + 1)}>+</button></span>
+                <button className={styles.btn} onClick={() => setCount(count + 1)}>+</button></span>
         </div>
 
         <div className={styles.info}>
