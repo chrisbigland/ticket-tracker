@@ -4,7 +4,8 @@ import styles from './Employee.module.scss'
 const Employee = (props) => {
 
     const {name, role} = props.employee;
-    const [count, setCount] = useState(1);
+    const [count, setCount] = useState(0);
+    const subtraction = count > 0 ? count - 1 : 0;
 
   return (
     <React.Fragment>
@@ -14,12 +15,11 @@ const Employee = (props) => {
         </div>
         <div className={styles.plusMinus}>
             <span>
-                <button onClick={() => setCount(count - 1)}>-</button></span>
+                <button onClick={() => setCount(subtraction)}>-</button></span>
             <span>
                 <button onClick={() => setCount(count + 1)}>+</button></span>
         </div>
 
-        {/* <button onClick={() => setCount(count - 1)}>-</button></span> */}
         <div className={styles.info}>
             <p className={styles.name}>Name: {name}</p>
             <p className={styles.role}>Role: {role}</p>
