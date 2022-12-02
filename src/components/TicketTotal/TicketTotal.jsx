@@ -5,6 +5,7 @@ const TicketTotal = () => {
   return (
     <div>
       <p className={styles.dummy}>Ticket Total</p>
+      
     </div>
   )
 }
