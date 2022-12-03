@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { scryRenderedDOMComponentsWithClass } from 'react-dom/test-utils';
 import styles from './Employee.module.scss'
 
 const Employee = ({totalTicketNo, setTotalTicketNo, employee}) => {
@@ -6,7 +7,7 @@ const Employee = ({totalTicketNo, setTotalTicketNo, employee}) => {
     // const {name, role} = props.employee;
     const [count, setCount] = useState(0);
     const subtraction = count > 0 ? count - 1 : 0;
-    const totalSubtraction = totalTicketNo > 0 ? totalTicketNo - 1 : 0;
+    const totalSubtraction = count > 0 ? totalTicketNo - 1 : totalTicketNo;
 
 // `${props.setTotalTicketNo(${props.totalTicketNo} + count)}`
     const handlePlusClick = () => {
