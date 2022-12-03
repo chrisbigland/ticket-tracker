@@ -15,7 +15,7 @@ const App = () => {
   return (
   <React.Fragment>
     <h1 className={styles.heading}>Ticket Tracker</h1>
-    
+    <h2>Total ticket number: {totalTicketNo}</h2>
     <section className={styles.content}>
       {/* <Employee employee={team[0]}/> */}
       {team.map(getEmployee)} 

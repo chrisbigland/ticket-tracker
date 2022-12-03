@@ -12,6 +12,11 @@ const Employee = ({totalTicketNo, setTotalTicketNo, employee}) => {
         setCount(count + 1)
         setTotalTicketNo(totalTicketNo + 1)
     }
+    
+    const handleMinusClick = () => {
+        setCount(subtraction)
+        setTotalTicketNo(totalTicketNo - 1)
+    }
 
   return (
     <React.Fragment>
@@ -21,7 +26,7 @@ const Employee = ({totalTicketNo, setTotalTicketNo, employee}) => {
         </div>
         <div className={styles.plusMinus}>
             <span>
-                <button className={styles.btn} onClick={() => setCount(subtraction)}>-</button></span>
+                <button className={styles.btn} onClick={() => handleMinusClick()}>-</button></span>
             <span>
                 <button className={styles.btn} onClick={() => handlePlusClick()}>+</button></span>
         </div>
