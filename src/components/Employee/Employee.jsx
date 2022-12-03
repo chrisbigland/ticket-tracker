@@ -6,6 +6,7 @@ const Employee = ({totalTicketNo, setTotalTicketNo, employee}) => {
     // const {name, role} = props.employee;
     const [count, setCount] = useState(0);
     const subtraction = count > 0 ? count - 1 : 0;
+    const totalSubtraction = totalTicketNo > 0 ? totalTicketNo - 1 : 0;
 
 // `${props.setTotalTicketNo(${props.totalTicketNo} + count)}`
     const handlePlusClick = () => {
@@ -15,7 +16,7 @@ const Employee = ({totalTicketNo, setTotalTicketNo, employee}) => {
     
     const handleMinusClick = () => {
         setCount(subtraction)
-        setTotalTicketNo(totalTicketNo - 1)
+        setTotalTicketNo(totalSubtraction)
     }
 
   return (
