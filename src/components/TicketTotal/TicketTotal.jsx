@@ -1,11 +1,11 @@
 import React from 'react'
 import styles from './TicketTotal.module.scss'
 
-const TicketTotal = () => {
+const TicketTotal = (props) => {
   return (
     <div>
-      <p className={styles.dummy}>Ticket Total</p>
-      
+      <h2 className={styles.dummy}>Completed Ticket Total:</h2>
+      <p className={styles.number}>{props.totalTicketNo}</p>
     </div>
   )
 }
