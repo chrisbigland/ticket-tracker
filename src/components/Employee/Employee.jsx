@@ -6,12 +6,12 @@ const Employee = ({
   totalTicketNo,
   setTotalTicketNo,
   employee,
-  numberOne,
-  setNumberOne,
   index,
   allScores,
   setAllScores,
+  getFirstPlace,
 }) => {
+  console.log("setTotalTicketNo is", setTotalTicketNo);
   // const {name, role} = props.employee;
   const [count, setCount] = useState(0);
   const subtraction = count > 0 ? count - 1 : 0;
@@ -21,13 +21,19 @@ const Employee = ({
   // `${props.setTotalTicketNo(${props.totalTicketNo} + count)}`
   const handlePlusClick = () => {
     setCount(count + 1);
-    setTotalTicketNo(totalTicketNo + 1)
-    ((allScores[index] = count + 1));
-// above sets the number of the array item to be the same as the number of the count (as it also does count + 1)
-// it does this by targetting the same index as is being looped through on the map. 
+    setTotalTicketNo((prev) => prev + 1); // previously this was totalTicketNo + 1. This just adds to the previous state
+    allScores[index] = count + 1; //DO SOMETHING HERE?
+    // above sets the number of the array item to be the same as the number of the count (as it also does count + 1)
+    // it does this by targetting the same index as is being looped through on the map.
     setAllScores([...allScores]);
     console.log(allScores);
+    // getFirstPlace();
   };
+
+  // when we click we:
+  // set the count state
+  // set the total ticket number state (this is shown on the browser)
+  //set each array item in all scores 
 
   //const handlePlusClick = () => {
   //   setCount(count + 1)

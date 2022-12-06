@@ -15,11 +15,25 @@
     justify-content: space-between;
 }
 
-.ticketTotal, .topThree {
-    position: absolute;
-    right: 50px;
-}
+//.ticketTotal, .topThree {
+//    position: absolute;
+ //   right: 50px;
+//}/
 
 .topThree {
-    top: 150px;
+  display: flex;
+  flex-direction: column;
+  
+}
+
+.topThreeTitle, .pos1, .pos2, .pos3 {
+    margin-left: auto;
+}
+
+.pos1, .pos2, .pos3 {
+    padding-right: 300px;
+}
+
+.topThreeTitle {
+    margin-right: 100px;
 }
