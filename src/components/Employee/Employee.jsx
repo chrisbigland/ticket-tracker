@@ -21,8 +21,10 @@ const Employee = ({
   // `${props.setTotalTicketNo(${props.totalTicketNo} + count)}`
   const handlePlusClick = () => {
     setCount(count + 1);
-    setTotalTicketNo(totalTicketNo + 1)((allScores[index] = count + 1));
-
+    setTotalTicketNo(totalTicketNo + 1)
+    ((allScores[index] = count + 1));
+// above sets the number of the array item to be the same as the number of the count (as it also does count + 1)
+// it does this by targetting the same index as is being looped through on the map. 
     setAllScores([...allScores]);
     console.log(allScores);
   };

@@ -39,8 +39,9 @@ const App = () => {
       max = allScoresCopy[i];
     }
   }
-  const positionOne = allScoresCopy.indexOf(max);
-  // console.log(allScoresCopy.indexOf(max))
+
+  const positionOne = allScoresCopy.length > 0 ? allScoresCopy.indexOf(max) : "";
+
   console.log(positionOne);
   //console.log(max.indexOf())
 
