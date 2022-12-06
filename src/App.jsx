@@ -96,7 +96,20 @@ const App = () => {
   const positionOneTernary = max > 0 ? team[positionOne]?.name : "";
   const positionTwoTernary = secondLargest > 0 ? team[positionTwo]?.name : "";
   const positionThreeTernary = thirdLargest > 0 ? team[positionThree]?.name : "";
+  
 
+  let objectDate = new Date();
+
+  let day = objectDate.getDate();
+  console.log(day); // 23
+  
+  let month = objectDate.getMonth();
+  console.log(month + 1); // 8
+  
+  let year = objectDate.getFullYear();
+  console.log(year); // 2022
+
+  let todaysDate = `${day}/${month}/${year}`
   //console.log(max.indexOf())
 
   // const sortedNumbers = allScoresCopy.sort((a, b) => {
@@ -113,7 +126,7 @@ const App = () => {
       </div>
       <div className={styles.dateAndTotal}>
         <h2 className={styles.date}>
-          Today's Date: {`${new Date().toLocaleString()}`}
+          Today's Date: {todaysDate}
         </h2>
       </div>
       <div className={styles.topThree}>
