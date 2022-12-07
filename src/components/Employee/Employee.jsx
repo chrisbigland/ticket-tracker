@@ -9,7 +9,7 @@ const Employee = ({
   index,
   allScores,
   setAllScores,
-  getFirstPlace,
+  handleAdd
 }) => {
   console.log("setTotalTicketNo is", setTotalTicketNo);
   // const {name, role} = props.employee;
@@ -19,16 +19,16 @@ const Employee = ({
   //const allScoresTest = allScores.length === 1 ? allScores : ...allScores;
 
   // `${props.setTotalTicketNo(${props.totalTicketNo} + count)}`
-  const handlePlusClick = () => {
-    setCount(count + 1);
-    setTotalTicketNo((prev) => prev + 1); // previously this was totalTicketNo + 1. This just adds to the previous state
-    allScores[index] = count + 1; //DO SOMETHING HERE?
+ // const handlePlusClick = () => {
+   // setCount(count + 1);
+   // setTotalTicketNo((prev) => prev + 1); // previously this was totalTicketNo + 1. This just adds to the previous state
+   // allScores[index] = count + 1; //DO SOMETHING HERE?
     // above sets the number of the array item to be the same as the number of the count (as it also does count + 1)
     // it does this by targetting the same index as is being looped through on the map.
-    setAllScores([...allScores]);
-    console.log(allScores);
+  //  setAllScores([...allScores]);
+   // console.log(allScores);
     // getFirstPlace();
-  };
+  //};
 
   // when we click we:
   // set the count state
@@ -58,28 +58,6 @@ const Employee = ({
     setAllScores([...allScores]);
   };
 
-  const calculateRanking = (count) => {
-    //could I get each count to add to an array as they are being mapped and then apply logic to work out position in that array?
-    const indivCount = count;
-    return indivCount;
-  };
-
-  const employeeName = employee.name;
-  console.log(employeeName);
-  // let numbersArr = [{}]
-  // create an array of objects here? with employee name and count?
-  //const getEmployeeNumbers = (employeeName, count) => {
-  // const employeeNameAndNumber = {
-  // name: employeeName,
-  //  number: count
-  //  }
-  //   console.log(employeeNameAndNumber)
-  /// console.log(employee.name)
-  //numbersArr.push(employee)
-  //numbersArr.push(count)
-  // return employeeNameAndNumber
-  //  }
-  console.log(count);
 
   return (
     <React.Fragment>
@@ -94,7 +72,7 @@ const Employee = ({
             </button>
           </span>
           <span>
-            <button className={styles.btn} onClick={() => handlePlusClick()}>
+            <button className={styles.btn} onClick={() => handleAdd(employee.id)}>
               +
             </button>
           </span>
