@@ -111,12 +111,10 @@ const App = () => {
           element.score++;
         }
       }
+      console.log("element.score is", element.score)
       return element;
     });
 
-
-console.log("function initiated")
-console.log(employees)
     setEmployees(newState); // here the employees state is reset to the above (i.e. new count inside of the object)
   };
 
@@ -130,12 +128,27 @@ console.log(employees)
 
     setEmployees(newState)
   }
+
+  console.log(employees)
   // use employees state to get the top performers
   // sort so high scores are first
-  //const sortedEmployees = [...employees].sort((a, b) => {
-   // return b.score - a.score;
-  //});
 
+
+  const sortedEmployees = [...employees].sort((a, b) => {
+    console.log("a is", a.score)
+    console.log("b is", b.score)
+    if (a == undefined) {
+      a = 0
+    }
+
+    if (b == undefined) {
+      b = 0
+    }
+    console.log("after setting to 0 if undefined, a is", a.score)
+    console.log("after setting to 0 if undefined, b is", b.score)
+    return b.score - a.score;
+  });
+  console.log(sortedEmployees)
   // top performers are...
   // sortedEmployees[0]
   // sortedEmployees[1]
@@ -155,9 +168,15 @@ console.log(employees)
  //   </div>
  // );
 //};
+console.log(sortedEmployees[0])
+console.log(sortedEmployees[1])
+console.log(sortedEmployees[2])
 
-
-
+employees.map((employee) => {
+  if (employee.score === undefined) {
+    employee.score = 0
+  }
+})
   return (
     <React.Fragment>
       <h1 className={styles.heading}>Ticket Tracker</h1>
@@ -171,11 +190,11 @@ console.log(employees)
         <h2 className={styles.topThreeTitle}>Top 3 performers:</h2>
 
         <h2 className={styles.pos1}>
-          1: {/*sortedemployees[0] */}
+          1: {sortedEmployees[0].name}
           {/* ? here shows that if it's not defined then ignore it*/}
         </h2>
-        <h2 className={styles.pos2}>2: {/*sortedemployees[1] */}</h2>
-        <h2 className={styles.pos3}>3: {/*sortedemployees[2] */}</h2>
+        <h2 className={styles.pos2}>2: {sortedEmployees[1].name}</h2>
+        <h2 className={styles.pos3}>3: {sortedEmployees[2].name}</h2>
       </div>
       <section className={styles.content}>
         {team.map((person, index) => getEmployee(person, index))}
