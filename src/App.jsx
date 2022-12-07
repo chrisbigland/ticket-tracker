@@ -35,12 +35,21 @@ const App = () => {
     }
   }
 console.log("max is", max)
+
 let secondLargestScore = 0;
-  let secondLargest = 0;
+  let secondLargest = 0; //does this reset secondLargest back to 0 on the rerender?
   for (let i = 0; i < allScoresCopy.length; i++) {
-    if (allScoresCopy.indexOf(allScoresCopy[i]) != max && allScoresCopy[i] > secondLargestScore) { // if the index of the item I'm looking at in this iteration is not the same as max (an index) and the value is bigger than the second Largest Score
-      secondLargest = allScoresCopy.indexOf(allScoresCopy[i]); // we set secondLargest to the index of the item we're looking at
+    if (allScoresCopy.indexOf(allScoresCopy[i]) != max && allScoresCopy[i] >= secondLargestScore) {
+      console.log("this index is not the same index as max and this item is larger than secondLargest Score") // if the index of the item I'm looking at in this iteration is not the same as max (an index) and the value is bigger than the second Largest Score
+     secondLargest = allScoresCopy.indexOf(allScoresCopy[i]); // we set secondLargest to the index of the item we're looking at
       secondLargestScore = allScoresCopy[i];
+      console.log("Worked!! - allScoresCopy item index is set to", allScoresCopy.indexOf(allScoresCopy[i]))
+      console.log("Worked!! - allScoresCopy item value is", allScoresCopy[i])
+   }
+   else {
+    console.log("DIDN'T WORK - this index is either the same index as max or this item is NOT larger than secondLargest Score")
+    console.log("DIDN'T WORK - allScoresCopy item index is set to", allScoresCopy.indexOf(allScoresCopy[i]))
+    console.log("DIDN'T WORK - allScoresCopy item value is", allScoresCopy[i])
    }
   }
 
@@ -63,6 +72,10 @@ let thirdLargestScore = 0
   console.log("team max name is", team[max].name)
   console.log("maxScore is", maxScore)
   const positionTwoTernary = secondLargestScore > 0 ? team[secondLargest]?.name : "";
+  if (secondLargestScore === maxScore && secondLargestScore > 0) { 
+    console.log("secondLargestScore is equal to maxScore")
+   // positionTwoTernary = team[secondLargest]?.name
+  }
   console.log("positionTwoTernary is", positionTwoTernary)
   console.log("team secondLargest name is", team[secondLargest].name)
   console.log("secondLargestScore is", secondLargestScore)
