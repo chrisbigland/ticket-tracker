@@ -22,7 +22,6 @@ const App = () => {
     />
   );
 
-
   let objectDate = new Date();
   let day = objectDate.getDate();
   let month = objectDate.getMonth();
@@ -31,70 +30,65 @@ const App = () => {
 
   const [employees, setEmployees] = useState(team); // sets employees state to the team array of objects
 
-  const handleAdd = (employeeId) => {       // handleAdd to be used in the Employee component when number is increased. The specific employeeID is passed through so we're dealing with right employee
-    const newState = employees.map((element) => {   // maps through employees state (team array of objects)
-      if (element.id === employeeId) {    // if the id of the item in the employees state (team array of objects) is the same as the one we are looking for, a score key is created in the object. This is set to 1 if it's not been created yet or increased if it's already been created
+  const handleAdd = (employeeId) => {
+    // handleAdd to be used in the Employee component when number is increased. The specific employeeID is passed through so we're dealing with right employee
+    const newState = employees.map((element) => {
+      // maps through employees state (team array of objects)
+      if (element.id === employeeId) {
+        // if the id of the item in the employees state (team array of objects) is the same as the one we are looking for, a score key is created in the object. This is set to 1 if it's not been created yet or increased if it's already been created
         if (element.score === undefined) {
           element.score = 1;
         } else {
           element.score++;
         }
       }
-      console.log("element.score is", element.score)
       return element;
     });
 
     setEmployees(newState); // here the employees state is reset to the above (i.e. new count inside of the object)
   };
 
-  const handleMinus = (employeeId) => {       // handleAdd to be used in the Employee component when number is increased. The specific employeeID is passed through so we're dealing with right employee
-    const newState = employees.map((element) => {   // maps through employees state (team array of objects)
-      if (element.id === employeeId && element.id != undefined && element.score > 0) {    // if the id of the item in the employees state (team array of objects) is the same as the one we are looking for, a score key is created in the object. This is set to 1 if it's not been created yet or increased if it's already been created
-          element.score--;
-        }
+  const handleMinus = (employeeId) => {
+    // handleAdd to be used in the Employee component when number is increased. The specific employeeID is passed through so we're dealing with right employee
+    const newState = employees.map((element) => {
+      // maps through employees state (team array of objects)
+      if (
+        element.id === employeeId &&
+        element.id != undefined &&
+        element.score > 0
+      ) {
+        // if the id of the item in the employees state (team array of objects) is the same as the one we are looking for, a score key is created in the object. This is set to 1 if it's not been created yet or increased if it's already been created
+        element.score--;
+      }
       return element;
     });
 
-    setEmployees(newState)
-  }
-
-  console.log(employees)
+    setEmployees(newState);
+  };
 
 
   const sortedEmployees = [...employees].sort((a, b) => {
-    console.log("a is", a.score)
-    console.log("b is", b.score)
-    if (a == undefined) {
-      a = 0
-    }
-
-    if (b == undefined) {
-      b = 0
-    }
-    console.log("after setting to 0 if undefined, a is", a.score)
-    console.log("after setting to 0 if undefined, b is", b.score)
     return b.score - a.score;
   });
-  console.log(sortedEmployees)
 
-console.log(sortedEmployees[0])
-console.log(sortedEmployees[1])
-console.log(sortedEmployees[2])
 
-const positionOne = sortedEmployees[0].score === 0 ? "" : sortedEmployees[0].name;
-const positionTwo = sortedEmployees[1].score === 0 ? "" : sortedEmployees[1].name;
-const positionThree = sortedEmployees[2].score === 0 ? "" : sortedEmployees[2].name;
+  const positionOne =
+    sortedEmployees[0].score === 0 ? "" : sortedEmployees[0].name;
+  const positionTwo =
+    sortedEmployees[1].score === 0 ? "" : sortedEmployees[1].name;
+  const positionThree =
+    sortedEmployees[2].score === 0 ? "" : sortedEmployees[2].name;
 
-employees.map((employee) => {
-  if (employee.score === undefined) {
-    employee.score = 0
-  }
-})
+  employees.map((employee) => {
+    if (employee.score === undefined) {
+      employee.score = 0;
+    }
+  });
   return (
     <React.Fragment>
       <h1 className={styles.heading}>Ticket Tracker</h1>
       <div className={styles.ticketTotal}>
-        <TicketTotal totalTicketNo={totalTicketNo} employees={employees}/>
+        <TicketTotal totalTicketNo={totalTicketNo} employees={employees} />
       </div>
       <div className={styles.dateAndTotal}>
         <h2 className={styles.date}>Today's Date: {todaysDate}</h2>
@@ -102,9 +96,7 @@ employees.map((employee) => {
       <div className={styles.topThree}>
         <h2 className={styles.topThreeTitle}>Top 3 performers:</h2>
 
-        <h2 className={styles.pos1}>
-          1: {positionOne}
-        </h2>
+        <h2 className={styles.pos1}>1: {positionOne}</h2>
         <h2 className={styles.pos2}>2: {positionTwo}</h2>
         <h2 className={styles.pos3}>3: {positionThree}</h2>
       </div>
@@ -128,4 +120,3 @@ export default App;
 
 // to do: make top performers component
 // improve variable names/amend similar ones
-// make it so that the top 3 are empty at the beginning of the day. 
