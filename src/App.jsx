@@ -8,7 +8,7 @@ import team from "./data/data";
 
 const App = () => {
   const [totalTicketNo, setTotalTicketNo] = useState(0);
-  // first place to be name of someone calculated checking an array
+
   const [allScores, setAllScores] = useState([0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
 
   const getEmployee = (employee, index) => (
@@ -21,103 +21,64 @@ const App = () => {
       setAllScores={setAllScores}
       index={index}
       team={team}
-      getFirstPlace={getFirstPlace}
     />
   );
 
   const allScoresCopy = [...allScores];
 
-  let max = allScoresCopy[0];
-  // work out second highest by removing max from copy of array and then find max again?
+  let max = 0
+  let maxScore = 0
   for (let i = 0; i < allScoresCopy.length; i++) {
-    if (allScoresCopy[i] > max) {
-      max = allScoresCopy[i];
+    if (allScoresCopy[i] > maxScore) {  // if the value of the item is bigger than maxScore, max is set to the index of this item
+      max = allScoresCopy.indexOf(allScoresCopy[i]);
+      maxScore = allScoresCopy[i];
     }
+  }
+console.log("max is", max)
+let secondLargestScore = 0;
+  let secondLargest = 0;
+  for (let i = 0; i < allScoresCopy.length; i++) {
+    if (allScoresCopy.indexOf(allScoresCopy[i]) != max && allScoresCopy[i] > secondLargestScore) { // if the index of the item I'm looking at in this iteration is not the same as max (an index) and the value is bigger than the second Largest Score
+      secondLargest = allScoresCopy.indexOf(allScoresCopy[i]); // we set secondLargest to the index of the item we're looking at
+      secondLargestScore = allScoresCopy[i];
+   }
   }
 
-  let secondLargest = allScoresCopy[0];
-  for (let i = 0; i < allScoresCopy.length; i++) {
-    if (allScoresCopy[i] != max && allScoresCopy[i] > secondLargest) {
-      secondLargest = allScoresCopy[i];
-    }
-  }
-  
-  let thirdLargest = allScoresCopy[0];
+  //CONSIDER PUTTING IN ANOTHER IF CLAUSE HERE TO FIX TIE SCORE SITUATION - if it is equal to max.....
+console.log("secondLargest is", secondLargest)
+let thirdLargestScore = 0
+  let thirdLargest = 0
+
   for (let i = 0; i < allScoresCopy.length; i++) {
     if (
-      allScoresCopy[i] != max &&
-      allScoresCopy[i] != secondLargest &&
-      allScoresCopy[i] > thirdLargest
-    ) {
-      thirdLargest = allScoresCopy[i];
+      allScoresCopy.indexOf(allScoresCopy[i]) != max && allScoresCopy.indexOf(allScoresCopy[i]) != secondLargest && allScoresCopy[i] > thirdLargest) {
+      thirdLargest = allScoresCopy.indexOf(allScoresCopy[i]);
+      thirdLargestScore = allScoresCopy[i];
     }
   }
 
-
-  console.log("allScoresCopy array is", allScoresCopy);
-
-  // check whether allscores is set to something weird. If not, see if we can do a ternary or a ? somewhere to make sure it doesn't report as null
-
-  const positionOne =
-    allScoresCopy.length > 0 ? allScoresCopy.indexOf(max) : ""; // this is giving me the position in the array for the top scorer
-
-  const positionTwo =
-    allScoresCopy.length > 0 ? allScoresCopy.indexOf(secondLargest) : "";
-
-  const positionThree =
-    allScoresCopy.length > 0 ? allScoresCopy.indexOf(thirdLargest) : "";
-
-  console.log("position one person is", team[positionOne]);
-  let topPersonIs = "";
-  let secondPersonIs = "";
-  let thirdPersonIs = "";
-
-  const getFirstPlace = (employee) => {
-    console.log("function activated");
-
-    if (employee.id === positionOne + 1) {
-      console.log(`${employee.name} is in first place`);
-      topPersonIs = employee.name;
-      console.log(topPersonIs);
-      return topPersonIs;
-    } else if (employee.id === positionTwo + 1) {
-      console.log(`${employee.name} is in second place`);
-    } else if (employee.id === positionThree + 1) {
-      console.log(`${employee.name} is in third place`);
-    } else {
-      console.log(`${employee.name} is not in the top three`);
-    }
-  };
-
-  const [positionOneName, setPositionOneName] = useState(topPersonIs);
-
-  console.log(positionOne);
-
-  const positionOneTernary = max > 0 ? team[positionOne]?.name : "";
-  const positionTwoTernary = secondLargest > 0 ? team[positionTwo]?.name : "";
-  const positionThreeTernary = thirdLargest > 0 ? team[positionThree]?.name : "";
-  
+  const positionOneTernary = maxScore > 0 ? team[max]?.name : "";
+  console.log("positionOneTernary is", positionOneTernary)
+  console.log("team is", team)
+  console.log("team max name is", team[max].name)
+  console.log("maxScore is", maxScore)
+  const positionTwoTernary = secondLargestScore > 0 ? team[secondLargest]?.name : "";
+  console.log("positionTwoTernary is", positionTwoTernary)
+  console.log("team secondLargest name is", team[secondLargest].name)
+  console.log("secondLargestScore is", secondLargestScore)
+  const positionThreeTernary =
+    thirdLargestScore > 0 ? team[thirdLargest]?.name : "";
 
   let objectDate = new Date();
 
   let day = objectDate.getDate();
-  console.log(day); // 23
-  
+
   let month = objectDate.getMonth();
-  console.log(month + 1); // 8
-  
+
   let year = objectDate.getFullYear();
-  console.log(year); // 2022
 
-  let todaysDate = `${day}/${month}/${year}`
-  //console.log(max.indexOf())
+  let todaysDate = `${day}/${month}/${year}`;
 
-  // const sortedNumbers = allScoresCopy.sort((a, b) => {
-  // return b - a;
-  //    });
-  //console.log(...sortedNumbers);
-
-  // above - pass count back up like with totalTicketNo?
   return (
     <React.Fragment>
       <h1 className={styles.heading}>Ticket Tracker</h1>
@@ -125,22 +86,21 @@ const App = () => {
         <TicketTotal totalTicketNo={totalTicketNo} />
       </div>
       <div className={styles.dateAndTotal}>
-        <h2 className={styles.date}>
-          Today's Date: {todaysDate}
-        </h2>
+        <h2 className={styles.date}>Today's Date: {todaysDate}</h2>
       </div>
       <div className={styles.topThree}>
         <h2 className={styles.topThreeTitle}>Top 3 performers:</h2>
 
         <h2 className={styles.pos1}>
-          1: {positionOneTernary} {/* ? here shows that if it's not defined then ignore it*/}
+          1: {positionOneTernary}
+          {/* ? here shows that if it's not defined then ignore it*/}
         </h2>
         <h2 className={styles.pos2}>2: {positionTwoTernary}</h2>
         <h2 className={styles.pos3}>3: {positionThreeTernary}</h2>
       </div>
       <section className={styles.content}>
         {team.map((person, index) => getEmployee(person, index))}
-        {team.map((employee) => getFirstPlace(employee))}
+      {/*  {team.map((employee) => getFirstPlace(employee))}*/ }
         {/* <TopPerformers /> */}
       </section>
     </React.Fragment>
@@ -163,7 +123,8 @@ export default App;
 // work out how to shorten date to just date
 // ask about drop-down menu - worth doing?
 // filter out undefineds (this should fix issue of ranking order being wrong)
-// THEN get to the root cause of why the undefineds were appearing at beginning of array. 
+// THEN get to the root cause of why the undefineds were appearing at beginning of array.
 // clear out console logs
 // sort out ranking issue where if the second place has same score as first then first person in array is assigned second place
 // improve variable names/amend similar ones
+// remove the first place person appearing after the last tracker on the browser - I believe it's because of the map

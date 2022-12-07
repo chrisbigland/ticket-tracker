@@ -33,7 +33,7 @@ const Employee = ({
   // when we click we:
   // set the count state
   // set the total ticket number state (this is shown on the browser)
-  //set each array item in all scores 
+  //set each array item in all scores
 
   //const handlePlusClick = () => {
   //   setCount(count + 1)
