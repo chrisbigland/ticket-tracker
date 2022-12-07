@@ -14,7 +14,7 @@ const Employee = ({
 }) => {
   console.log("setTotalTicketNo is", setTotalTicketNo);
   // const {name, role} = props.employee;
-  //const [count, setCount] = useState(0);
+ // const [count, setCount] = useState(0);
   //const subtraction = count > 0 ? count - 1 : 0;
  //const totalSubtraction = count > 0 ? totalTicketNo - 1 : totalTicketNo;
   //const allScoresTest = allScores.length === 1 ? allScores : ...allScores;

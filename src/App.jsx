@@ -9,7 +9,7 @@ import team from "./data/data";
 const App = () => {
   const [totalTicketNo, setTotalTicketNo] = useState(0);
 
-  const [allScores, setAllScores] = useState([0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
+ // const [allScores, setAllScores] = useState([0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
 
   const getEmployee = (employee, index) => (
     <Employee
@@ -17,8 +17,8 @@ const App = () => {
       key={employee.id}
       totalTicketNo={totalTicketNo}
       setTotalTicketNo={setTotalTicketNo}
-      allScores={allScores}
-      setAllScores={setAllScores}
+     // allScores={allScores}
+     // setAllScores={setAllScores}
       index={index}
       team={team}
       handleAdd={handleAdd}
@@ -181,7 +181,7 @@ employees.map((employee) => {
     <React.Fragment>
       <h1 className={styles.heading}>Ticket Tracker</h1>
       <div className={styles.ticketTotal}>
-        <TicketTotal totalTicketNo={totalTicketNo} />
+        <TicketTotal totalTicketNo={totalTicketNo} employees={employees}/>
       </div>
       <div className={styles.dateAndTotal}>
         <h2 className={styles.date}>Today's Date: {todaysDate}</h2>
