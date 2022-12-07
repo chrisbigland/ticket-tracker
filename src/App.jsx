@@ -22,6 +22,7 @@ const App = () => {
       index={index}
       team={team}
       handleAdd={handleAdd}
+      handleMinus={handleMinus}
     />
   );
 
@@ -112,11 +113,23 @@ const App = () => {
       }
       return element;
     });
+
+
 console.log("function initiated")
 console.log(employees)
     setEmployees(newState); // here the employees state is reset to the above (i.e. new count inside of the object)
   };
 
+  const handleMinus = (employeeId) => {       // handleAdd to be used in the Employee component when number is increased. The specific employeeID is passed through so we're dealing with right employee
+    const newState = employees.map((element) => {   // maps through employees state (team array of objects)
+      if (element.id === employeeId && element.id != undefined && element.score > 0) {    // if the id of the item in the employees state (team array of objects) is the same as the one we are looking for, a score key is created in the object. This is set to 1 if it's not been created yet or increased if it's already been created
+          element.score--;
+        }
+      return element;
+    });
+
+    setEmployees(newState)
+  }
   // use employees state to get the top performers
   // sort so high scores are first
   //const sortedEmployees = [...employees].sort((a, b) => {

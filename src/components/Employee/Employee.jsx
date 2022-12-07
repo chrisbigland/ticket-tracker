@@ -9,13 +9,14 @@ const Employee = ({
   index,
   allScores,
   setAllScores,
-  handleAdd
+  handleAdd, 
+  handleMinus
 }) => {
   console.log("setTotalTicketNo is", setTotalTicketNo);
   // const {name, role} = props.employee;
-  const [count, setCount] = useState(0);
-  const subtraction = count > 0 ? count - 1 : 0;
-  const totalSubtraction = count > 0 ? totalTicketNo - 1 : totalTicketNo;
+  //const [count, setCount] = useState(0);
+  //const subtraction = count > 0 ? count - 1 : 0;
+ //const totalSubtraction = count > 0 ? totalTicketNo - 1 : totalTicketNo;
   //const allScoresTest = allScores.length === 1 ? allScores : ...allScores;
 
   // `${props.setTotalTicketNo(${props.totalTicketNo} + count)}`
@@ -52,22 +53,24 @@ const Employee = ({
   // finding place in array that needs to be updated
   //copying array and updating item.
 
-  const handleMinusClick = () => {
-    setCount(subtraction);
-    setTotalTicketNo(totalSubtraction)((allScores[index] = subtraction));
-    setAllScores([...allScores]);
-  };
+  //const handleMinusClick = () => {
+  //  setCount(subtraction);
+   // setTotalTicketNo(totalSubtraction)((allScores[index] = subtraction));
+   // setAllScores([...allScores]);
+  //};
+
+  const display = employee.score > 0 ? employee.score : 0;
 
 
   return (
     <React.Fragment>
       <div className={styles.employee}>
         <div className={styles.display}>
-          <span>{employee.score}</span>
+          <span>{display}</span>
         </div>
         <div className={styles.plusMinus}>
           <span>
-            <button className={styles.btn} onClick={() => handleMinusClick()}>
+            <button className={styles.btn} onClick={() => handleMinus(employee.id)}>
               -
             </button>
           </span>
