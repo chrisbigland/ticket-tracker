@@ -63,7 +63,7 @@ const Employee = ({
     <React.Fragment>
       <div className={styles.employee}>
         <div className={styles.display}>
-          <span>{count}</span>
+          <span>{employee.score}</span>
         </div>
         <div className={styles.plusMinus}>
           <span>
