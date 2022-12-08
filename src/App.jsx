@@ -83,22 +83,17 @@ const App = () => {
   return (
     <React.Fragment>
       <h1 className={styles.heading}>Ticket Tracker</h1>
-      <div className={styles.ticketTotal}>
-        <TicketTotal employees={employees} />
-      </div>
+      <section className={styles.totalDateAndTopThree}>
       <div className={styles.dateAndTotal}>
+      <TicketTotal employees={employees} />
         <h2 className={styles.date}>Today's Date: {todaysDate}</h2>
       </div>
-      <div className={styles.topThree}>
-        <h2 className={styles.topThreeTitle}>Top 3 performers:</h2>
-
-        <h2 className={styles.pos1}>1: {positionOne}</h2>
-        <h2 className={styles.pos2}>2: {positionTwo}</h2>
-        <h2 className={styles.pos3}>3: {positionThree}</h2>
-      </div>
+      
+      <TopPerformers positionOne={positionOne} positionTwo={positionTwo} positionThree={positionThree}/>
+      </section>
       <section className={styles.content}>
         {team.map((person) => getEmployee(person))}
-        {/* <TopPerformers /> */}
+       
       </section>
     </React.Fragment>
   );
@@ -113,8 +108,3 @@ export default App;
 
 // ideas - access employee.count, store that as a state for each employee and put those into an array to work out top numbers
 // store the employee name and their count as object items in an array.
-
-// to do: make top performers component
-// improve variable names/amend similar ones
-// improve stylings
-// read me

@@ -2,8 +2,12 @@
 .heading {
     font-size: 2rem;
     text-align: center;
+    margin-top: 50px;
 }
 
+.dateAndTotal {
+    margin-left: 100px;
+}
 .content {
     margin-top: 100px;
     margin-left: 100px;
@@ -15,25 +19,13 @@
     justify-content: space-between;
 }
 
-//.ticketTotal, .topThree {
-//    position: absolute;
- //   right: 50px;
-//}/
-
 .topThree {
-  display: flex;
-  flex-direction: column;
+ // display: flex;
+  //flex-direction: column;
   
 }
 
-.topThreeTitle, .pos1, .pos2, .pos3 {
-    margin-left: auto;
-}
-
-.pos1, .pos2, .pos3 {
-    padding-right: 300px;
-}
-
-.topThreeTitle {
-    margin-right: 100px;
+.totalDateAndTopThree {
+display: flex;
+justify-content: space-between;
 }

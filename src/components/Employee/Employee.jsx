@@ -11,7 +11,6 @@ const Employee = ({
 
   const display = employee.score > 0 ? employee.score : 0;
 
-
   return (
     <React.Fragment>
       <div className={styles.employee}>
