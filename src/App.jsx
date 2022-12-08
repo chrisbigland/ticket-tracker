@@ -7,16 +7,11 @@ import TopPerformers from "./components/TopPerformers";
 import team from "./data/data";
 
 const App = () => {
-  const [totalTicketNo, setTotalTicketNo] = useState(0);
 
-  const getEmployee = (employee, index) => (
+  const getEmployee = (employee) => (
     <Employee
       employee={employee}
       key={employee.id}
-      totalTicketNo={totalTicketNo}
-      setTotalTicketNo={setTotalTicketNo}
-      index={index}
-      team={team}
       handleAdd={handleAdd}
       handleMinus={handleMinus}
     />
@@ -84,11 +79,12 @@ const App = () => {
       employee.score = 0;
     }
   });
+
   return (
     <React.Fragment>
       <h1 className={styles.heading}>Ticket Tracker</h1>
       <div className={styles.ticketTotal}>
-        <TicketTotal totalTicketNo={totalTicketNo} employees={employees} />
+        <TicketTotal employees={employees} />
       </div>
       <div className={styles.dateAndTotal}>
         <h2 className={styles.date}>Today's Date: {todaysDate}</h2>
@@ -101,7 +97,7 @@ const App = () => {
         <h2 className={styles.pos3}>3: {positionThree}</h2>
       </div>
       <section className={styles.content}>
-        {team.map((person, index) => getEmployee(person, index))}
+        {team.map((person) => getEmployee(person))}
         {/* <TopPerformers /> */}
       </section>
     </React.Fragment>
@@ -120,3 +116,5 @@ export default App;
 
 // to do: make top performers component
 // improve variable names/amend similar ones
+// improve stylings
+// read me
