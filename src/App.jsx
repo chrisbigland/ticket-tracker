@@ -19,7 +19,8 @@ const App = () => {
 
   let objectDate = new Date();
   let day = objectDate.getDate();
-  let month = objectDate.getMonth();
+  let month = objectDate.getMonth() + 1;
+  console.log(month)
   let year = objectDate.getFullYear();
   let todaysDate = `${day}/${month}/${year}`;
 
