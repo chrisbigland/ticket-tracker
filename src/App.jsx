@@ -85,16 +85,19 @@ const App = () => {
     <React.Fragment>
       <h1 className={styles.heading}>Ticket Tracker</h1>
       <section className={styles.totalDateAndTopThree}>
-      <div className={styles.dateAndTotal}>
-      <TicketTotal employees={employees} />
-        <h2 className={styles.date}>Today's Date: {todaysDate}</h2>
-      </div>
-      
-      <TopPerformers positionOne={positionOne} positionTwo={positionTwo} positionThree={positionThree}/>
+        <div className={styles.dateAndTotal}>
+          <TicketTotal employees={employees} />
+          <h2 className={styles.date}>Today's Date: {todaysDate}</h2>
+        </div>
+
+        <TopPerformers
+          positionOne={positionOne}
+          positionTwo={positionTwo}
+          positionThree={positionThree}
+        />
       </section>
       <section className={styles.content}>
         {team.map((person) => getEmployee(person))}
-       
       </section>
     </React.Fragment>
   );
