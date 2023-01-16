@@ -45,7 +45,7 @@ const App = () => {
   };
 
   const handleMinus = (employeeId) => {
-    // handleAdd to be used in the Employee component when number is increased. The specific employeeID is passed through so we're dealing with right employee
+    // To be used in the Employee component when number is decreased. The specific employeeID is passed through so we're dealing with right employee
     const newState = employees.map((element) => {
       // maps through employees state (team array of objects)
       if (
@@ -104,11 +104,3 @@ const App = () => {
 };
 
 export default App;
-
-// pass down totalTicketNo as props to totalTicketNo component? Do same with top 3 when working
-// check these links for arrays in react https://javascript.plainenglish.io/how-to-add-to-an-array-in-react-state-3d08ddb2e1dc
-//https://www.folkstalk.com/tech/how-to-define-array-in-react-js-with-code-examples/
-// https://www.w3schools.com/react/react_es6_array_methods.asp
-
-// ideas - access employee.count, store that as a state for each employee and put those into an array to work out top numbers
-// store the employee name and their count as object items in an array.
