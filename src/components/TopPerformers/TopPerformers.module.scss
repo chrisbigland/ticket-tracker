@@ -2,16 +2,30 @@
   //  margin-left: auto;
 }
 
-.pos1, .pos2, .pos3 {
-   margin-right: 300px;
-}
 
-.topThreeTitle {
-    margin-right: 100px;
-}
 
 .topThree {
-   // display: flex;
-   // flex-direction: column;
-    
-  }
+   width: 350px;
+   margin-top: 30px;
+}
+
+
+@media screen and (max-width: 1020px) {
+   .topThree {
+      width: 250px;
+   }
+}
+
+@media screen and (max-width: 650px) {
+   .topThree {
+      font-size: 0.8rem;
+      width: 180px;
+   }
+}
+
+@media screen and (max-width: 460px) {
+   .topThree {
+      font-size: 0.7rem;
+      margin-left: 10px;
+   }
+}
